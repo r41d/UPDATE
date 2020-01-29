@@ -25,6 +25,9 @@ elif [ -x "$(command -v emerge)" ]; then
 elif [ -x "$(command -v yum)" ]; then
 	echo "installing update script for yum"
 	install_update_script "yum update"
+elif [ -x "$(command -v pacman)" ]; then
+	echo "installing update script for pacman"
+	install_update_script "pacman -Syu"
 elif [ -x "$(command -v apk)" ]; then
 	echo "installing update script for apk"
 	install_update_script "apk update && apk upgrade"
