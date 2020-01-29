@@ -1,8 +1,13 @@
 #!/bin/sh
 
-TARGET=/usr/local/sbin/UPDATE
+FOLDER=/usr/local/sbin
+TARGET=$FOLDER/UPDATE
 
 install_update_script () {
+	if ! [ -d $FOLDER ]; then
+		echo "creating $FOLDER"
+		mkdir -p $FOLDER
+	fi
 	echo "#!/bin/sh" > $TARGET
 	echo $1 >> $TARGET
 }
