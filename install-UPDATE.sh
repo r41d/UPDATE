@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
 TARGET=/usr/local/sbin/UPDATE
 
-function install_update_script {
-	echo "#!/bin/bash" > $TARGET
+install_update_script () {
+	echo "#!/bin/sh" > $TARGET
 	echo $1 >> $TARGET
 }
 
@@ -20,6 +20,9 @@ elif [ -x "$(command -v emerge)" ]; then
 elif [ -x "$(command -v yum)" ]; then
 	echo "installing update script for yum"
 	install_update_script "yum update"
+elif [ -x "$(command -v apk)" ]; then
+	echo "installing update script for apk"
+	install_update_script "apk update && apk upgrade"
 else
 	echo "wasn't able to find a matching update script :("
 	exit 1
