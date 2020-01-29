@@ -17,6 +17,9 @@ if [ -x "$(command -v apt)" ]; then
 elif [ -x "$(command -v emerge)" ]; then
 	echo "installing update script for emerge"
 	install_update_script "emerge --sync && emerge -DNuav @world"
+elif [ -x "$(command -v yum)" ]; then
+	echo "installing update script for yum"
+	install_update_script "yum update"
 else
 	echo "wasn't able to find a matching update script :("
 	exit 1
