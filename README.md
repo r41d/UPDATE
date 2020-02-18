@@ -3,6 +3,6 @@
 ## Installation
 
 ```
-curl https://raw.githubusercontent.com/r41d/UPDATE/master/install-UPDATE.sh | sh
+curl https://raw.githubusercontent.com/r41d/UPDATE/master/install-UPDATE.sh | sudo sh
 ```
 
